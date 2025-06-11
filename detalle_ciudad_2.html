@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Turismo Conectado – Detalle Ciudad 2</title>
+
+  <!-- Bootstrap y Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="bootstrap-5.3.5-dist/bootstrap-5.3.5-dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    /* Header con degradado */
+    header {
+      background: linear-gradient(135deg, #007bff 0%, #6c757d 100%);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: .5rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      opacity: .9;
+    }
+
+    /* Breadcrumb transparente */
+    .breadcrumb {
+      background: transparent;
+      margin-top: 2rem;
+      padding: 0;
+    }
+    .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+      content: "›";
+    }
+
+    /* Banner imagen */
+    .banner {
+      position: relative;
+      border-radius: .5rem;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .banner img {
+      width: 100%; height: 300px;
+      object-fit: cover;
+    }
+    .banner .overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      padding: 1rem;
+      font-weight: 600;
+    }
+
+    /* Títulos de sección */
+    .section-title {
+      border-left: 4px solid #007bff;
+      padding-left: .75rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    /* Tarjetas de sitios */
+    .site-card {
+      border: none;
+      border-left: 4px solid #6c757d;
+      border-radius: .5rem;
+      transition: transform .3s, box-shadow .3s;
+      background: #fff;
+    }
+    .site-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .site-card img {
+      height: 300px;
+      object-fit: cover;
+      border-top-left-radius: .5rem;
+      border-top-right-radius: .5rem;
+    }
+    .site-card .card-body {
+      padding: 1rem;
+    }
+
+    /* Botón volver */
+    .btn-outline-primary {
+      border: 2px solid #007bff;
+      color: #007bff;
+      transition: background .3s, color .3s;
+    }
+    .btn-outline-primary:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      background: #343a40;
+      color: #adb5bd;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Ciudad 2</h1>
+    <p>Breve introducción a la ciudad 2 y por qué es un destino imperdible.</p>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav class="container mt-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="home.php">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="explorar_ciudades.php">Explorar Ciudades</a></li>
+      <li class="breadcrumb-item active">Ciudad 2</li>
+    </ol>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="container">
+
+    <!-- Banner imagen -->
+    <div class="banner">
+      <img src="imagenes/ciudad_2.jpg" alt="Panorámica Ciudad 1">
+      <div class="overlay">Panorámica de Ciudad 2</div>
+    </div>
+
+    <!-- Descripción -->
+    <section class="mb-5">
+      <h3 class="section-title">Descripción de Ciudad 2</h3>
+      <p>
+        Ciudad 1 es conocida por su rica historia colonial, calles empedradas y una arquitectura que mezcla
+        lo moderno con lo tradicional. Sus plazas vivas, cafés locales y festivales culturales la convierten
+        en un destino ideal para todo tipo de viajeros.
+      </p>
+    </section>
+
+    <!-- Sitios Históricos -->
+    <section>
+      <h3 class="section-title">Sitios Históricos</h3>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Sitio 1 -->
+        <div class="col">
+          <div class="card site-card h-100">
+            <img src="imagenes/catedral_2.png" class="card-img-top" alt="Catedral Antigua">
+            <div class="card-body">
+              <h5 class="card-title">Catedral Antigua</h5>
+              <p class="card-text">Construida en el siglo XVII, mezcla estilos barroco y neoclásico.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Sitio 2 -->
+        <div class="col">
+          <div class="card site-card h-100">
+            <img src="img/ciudad1-sitio2.jpg" class="card-img-top" alt="Fuerte Colonial">
+            <div class="card-body">
+              <h5 class="card-title">Fuerte Colonial</h5>
+              <p class="card-text">Antigua fortaleza española con vistas panorámicas al valle.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Sitio 3 -->
+        <div class="col">
+          <div class="card site-card h-100">
+            <img src="img/ciudad1-sitio3.jpg" class="card-img-top" alt="Museo de la Ciudad">
+            <div class="card-body">
+              <h5 class="card-title">Museo de la Ciudad</h5>
+              <p class="card-text">Exhibe artefactos precolombinos y colección de arte local.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Botón Volver -->
+    <div class="text-center mt-5">
+      <a href="explorar_ciudades.php" class="btn btn-outline-primary btn-lg">
+        <i class="bi bi-arrow-left-circle me-1"></i> Volver a Ciudades
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p class="mb-0">&copy; 2025 Turismo Conectado - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="bootstrap-5.3.5-dist/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

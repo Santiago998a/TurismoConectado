@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Turismo Conectado - Iniciar Sesión</title>
+  <link rel="stylesheet" href="bootstrap-5.3.5-dist/bootstrap-5.3.5-dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #007bff 0%, #6c757d 100%);
+      min-height: 100vh;
+    }
+    .card {
+      border-radius: 1rem;
+    }
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    .input-group-text {
+      background-color: #e9ecef;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="bg-primary text-white py-4 shadow">
+    <div class="container text-center">
+      <h1 class="display-5 fw-bold">Turismo Conectado</h1>
+      <p class="lead mb-0">Descubre, explora y planifica tus viajes por las mejores ciudades</p>
+    </div>
+  </header>
+
+  <main class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="card shadow p-4 w-100" style="max-width: 450px;">
+      <h2 class="mb-4 text-center text-primary">Iniciar Sesión</h2>
+
+      <!-- Alertas dinámicas -->
+      <div id="alertas"></div>
+
+      <form id="formLogin" action="validar.php" method="post" autocomplete="off" novalidate>
+        <div class="mb-3">
+          <label for="usuario" class="form-label">Usuario</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+            <input type="text" class="form-control" id="usuario" name="correo" placeholder="Tu correo" required>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="clave" class="form-label">Contraseña</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+           <input type="password" class="form-control" id="clave" name="contrasena" placeholder="Tu contraseña" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mt-3">Ingresar</button>
+      </form>
+
+      <p class="text-center mt-3 mb-0">
+        ¿No tienes cuenta? <a href="registro.html" class="text-decoration-none">Regístrate aquí</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p class="mb-0">&copy; 2025 Turismo Conectado - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="bootstrap-5.3.5-dist/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const form = document.getElementById('formLogin');
+    const alertas = document.getElementById('alertas');
+    const usuario = document.getElementById('usuario');
+    const clave = document.getElementById('clave');
+
+    // Validación en tiempo real
+    [usuario, clave].forEach(input => {
+      input.addEventListener('input', () => validarCampo(input));
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alertas.innerHTML = '';
+
+      if (!validarCampo(usuario) | !validarCampo(clave)) {
+        mostrarAlerta('Por favor, completa correctamente todos los campos.', 'danger');
+        return;
+      }
+
+      // Opcional: mostrar alerta antes de enviar
+      mostrarAlerta('Verificando datos...', 'info');
+
+      // Envío después de 1 segundo
+      setTimeout(() => {
+        form.submit();
+      }, 1000);
+    });
+
+    function validarCampo(input) {
+      if (input.value.trim() === '') {
+        input.classList.remove('is-valid');
+        input.classList.add('is-invalid');
+        return false;
+      } else {
+        input.classList.remove('is-invalid');
+        input.classList.add('is-valid');
+        return true;
+      }
+    }
+
+    function mostrarAlerta(mensaje, tipo) {
+      const alerta = `
+        <div class="alert alert-${tipo} alert-dismissible fade show" role="alert">
+          ${mensaje}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+        </div>
+      `;
+      alertas.innerHTML = alerta;
+    }
+  </script>
+
+</body>
+</html>
